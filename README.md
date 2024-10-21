@@ -28,7 +28,9 @@ Este proyecto consiste en una aplicación web de gestión centralizada de una re
 │   ├── create.php              # Crear libros
 │   └── edit.php                # Editar libros
 │
-├── config.php                  # Configuración de la base de datos
+├── db/                         
+│   ├── db.php                  # Conexión a la base de datos
+│   └── gestor_biliotecas.sql   # Base de datos
 ├── index.php                   # Página principal
 ```
 
