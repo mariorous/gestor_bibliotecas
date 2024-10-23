@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2024 a las 20:06:16
+-- Tiempo de generación: 23-10-2024 a las 17:33:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -85,11 +85,11 @@ CREATE TABLE `library` (
 --
 
 INSERT INTO `library` (`id`, `name`, `address`, `phone`) VALUES
-(1, 'Biblioteca Nacional de España', 'Paseo de Recoletos, 20-22, 28001 Madrid, España', '915 807 8'),
-(2, 'Biblioteca Pública de Valencia', 'Calle del Hospital, 13, 46001 Valencia, España', '963 513 9'),
-(3, 'Biblioteca Pública de Zaragoza', 'Calle Doctor Cerrada, 22, 50005 Zaragoza, España', '976 222 9'),
-(4, 'Biblioteca Regional de Murcia', 'Avenida Juan Carlos I, 17, 30008 Murcia, España', '968 366 5'),
-(5, 'Biblioteca de Andalucía', 'Calle Profesor Sainz Cantero, 6, 18002 Granada, España', '958 029 4');
+(1, 'Biblioteca Nacional de España', 'Paseo de Recoletos, 20-22, 28001 Madrid, España', '915807823'),
+(2, 'Biblioteca Pública de Valencia', 'Calle del Hospital, 13, 46001 Valencia, España', '963513987'),
+(3, 'Biblioteca Pública de Zaragoza', 'Calle Doctor Cerrada, 22, 50005 Zaragoza, España', '976222943'),
+(4, 'Biblioteca Regional de Murcia', 'Avenida Juan Carlos I, 17, 30008 Murcia, España', '968366508'),
+(5, 'Biblioteca de Andalucía', 'Calle Profesor Sainz Cantero, 6, 18002 Granada, España', '958029411');
 
 --
 -- Índices para tablas volcadas
