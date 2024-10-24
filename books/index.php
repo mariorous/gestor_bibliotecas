@@ -16,6 +16,7 @@ $result = mysqli_query($conn, $query);
 </head>
 <body>
     <h1>Listado de Libros</h1>
+
     <div class="container">
         <div class="divTable">
             <table>
@@ -70,5 +71,7 @@ $result = mysqli_query($conn, $query);
 
     </div>
     
+
+    <a href="createBook.php">Añadir Nuevo Libro</a>
 </body>
 </html>
