@@ -13,7 +13,12 @@ require_once 'db/db.php';
 </head>
 <body>
     <h1>Gestión Centralizada de Bibliotecas</h1>
-
+    <!-- Enlaces a la gestión de bibliotecas y libros -->
+    <div class="homeMenu">
+        <a href="libraries/index.php">Gestionar Bibliotecas</a>
+        <br>
+        <a href="books/index.php">Gestionar Libros</a>
+    </div>
     <!-- Buscador de libros -->
     <form method="" action="">
         <label for="search">Buscar libros por título, autor o ISBN:</label>
@@ -21,14 +26,7 @@ require_once 'db/db.php';
         <button type="submit">Buscar</button>
     </form>
 
+    
 
-    <hr>
-
-    <!-- Enlaces a la gestión de bibliotecas y libros -->
-    <h2>Gestión</h2>
-    <ul>
-        <li><a href="libraries/index.php">Gestionar Bibliotecas</a></li>
-        <li><a href="books/index.php">Gestionar Libros</a></li>
-    </ul>
 </body>
 </html>
