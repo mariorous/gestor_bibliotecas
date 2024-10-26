@@ -166,3 +166,82 @@ select {
     color: #333;
     font-weight: bold;
 }
+
+.rowButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rowButtons form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.editButton {
+    color: #faac53;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.editButton:hover {
+    color: #cb8c44;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+
+.deleteButton {
+    color: #fa5353;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.deleteButton:hover {
+    color: #bf4141;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.confirmDelete {
+    color: #ffffff;
+    background-color: #fa5353;
+    border: 2px solid #fa5353;
+    margin: 0;
+    font-size: 18px;
+}
+
+.confirmDelete:hover {
+    color: #fa5353;
+    background-color: #ffffff;
+    border: 2px solid #fa5353;
+    margin: 0;
+    font-size: 18px;
+}
+
+.confirmDeleteContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmDeleteContainer form {
+    margin: 0;
+}
+
+.confirmDeleteContainer a {
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 0;
+    margin-right: 50px;
+}
