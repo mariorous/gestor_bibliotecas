@@ -17,7 +17,7 @@ $book_array = mysqli_fetch_assoc($book_result);
         <link rel="stylesheet" href="../css/books.css">
     </head>
     <body>
-        <h2>¿Estás seguro que quieres eliminar el libro <?php echo $book_array['title']; ?>?</h2>
+        <h2>¿Estás seguro que quieres eliminar el libro "<?php echo $book_array['title']; ?>"?</h2>
         <div class="confirmDeleteContainer">
             <a href="index.php">Volver</a>
             <form action="" method="POST">

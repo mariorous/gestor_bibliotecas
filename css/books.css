@@ -44,6 +44,7 @@ button {
 button:hover {
     background-color: #ffffff;
     border: 2px solid #faac53;
+    transition: ease-in-out 0.2s;
 }
 
 .createButton {
@@ -74,6 +75,7 @@ a {
 a:hover {
     background-color: #ffffff;
     border: 3px solid #faac53;
+    transition: ease-in-out 0.2s;
 }
 
 table {
@@ -113,6 +115,7 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #d1e7fd;
+    transition: ease-in-out 0.2s;
 }
 
 .container {
@@ -156,6 +159,14 @@ input[type="submit"] {
     font-weight: bold;
 }
 
+input[type="submit"]:hover {
+    cursor: pointer;
+    border: 2px solid #faac53;
+    background-color: #ffffff;
+    color: #333;
+    transition: ease-in-out 0.2s;
+}
+
 select {
     padding: 8px;
     margin-bottom: 10px;
@@ -194,6 +205,7 @@ select {
     border: none;
     margin: 0;
     font-size: 18px;
+    transition: ease-in-out 0.2s;
 }
 
 
@@ -211,6 +223,7 @@ select {
     border: none;
     margin: 0;
     font-size: 18px;
+    transition: ease-in-out 0.2s;
 }
 
 .confirmDelete {
@@ -227,12 +240,14 @@ select {
     border: 2px solid #fa5353;
     margin: 0;
     font-size: 18px;
+    transition: ease-in-out 0.2s;
 }
 
 .confirmDeleteContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 
 .confirmDeleteContainer form {
@@ -244,4 +259,26 @@ select {
     border-radius: 10px;
     margin: 0;
     margin-right: 50px;
+}
+
+.divUpdateForm {
+    width: 30%;
+    margin: 15px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px 50px;
+    height: fit-content;
+}
+
+.backContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.backContainer a {
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 0;
 }
