@@ -27,6 +27,7 @@ $phone = $_POST['phone'];
         <?php
             $queryInsert = 'INSERT INTO library (name, address, phone) VALUES ("' . $name . '", "' . $address . '", "' . $phone . '")';
             $resultInsert = mysqli_query($conn, $queryInsert);
+            header('Location: index.php');
         ?>
     <?php endif ?>
 </body>
