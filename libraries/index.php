@@ -53,11 +53,11 @@ $resultado = mysqli_query($conn, $queryMostrar);
             <h2>Añadir Bibliotecas</h2>
             <form action="createLibrary.php" method="POST">
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name">
                 <label for="address">Dirección:</label>
-                <input type="text" id="address" name="address" required>
+                <input type="text" id="address" name="address">
                 <label for="phone">Teléfono:</label>
-                <input type="text" id="phone" name="phone" required>
+                <input type="text" id="phone" name="phone">
                 <input type="submit" value="Crear" name="addLibrary">
             </form>
         </div>  
