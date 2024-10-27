@@ -70,10 +70,11 @@ $result = mysqli_query($conn, $query);
                     <?php
                     $query = 'SELECT * FROM library';
                     $result = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_assoc($result)) : ?>
+                    ?>
+                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                         <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>;
                     <?php endwhile; ?>
-                    ?>
+                    
                 <input type="submit" value="Añadir" name="addBook">
             </form>
         </div>
