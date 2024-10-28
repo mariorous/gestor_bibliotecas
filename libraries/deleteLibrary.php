@@ -18,11 +18,11 @@ $libraries = mysqli_fetch_assoc($result_library);
 </head>
 <body>
     <h2>¿Estás completamente seguro de querer eliminar esta biblioteca: <?php echo $libraries['name']; ?></h2>
-    <div>
+    <div class="confirmDeleteContainer">
         <a href="index.php">Volver</a>
         <form action="" method="POST">
             <input type="hidden" name="id" value="<?php echo $_POST['id'] ?>">
-            <button type="submit" name="confirm">Eliminar</button>
+            <button type="submit" name="confirm" class="confirmDelete">Eliminar</button>
         </form>
     </div>
     <?php

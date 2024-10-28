@@ -4,7 +4,7 @@ include_once '../db/db.php';
 
 //Query para mostrar tabla
 
-$queryMostrar = "SELECT * FROM library";
+$queryMostrar = "SELECT * FROM library ORDER BY id DESC";
 $resultado = mysqli_query($conn, $queryMostrar);
 
 
@@ -15,6 +15,8 @@ $resultado = mysqli_query($conn, $queryMostrar);
 <head>
     <meta charset="UTF-8">
     <title>Bibliotecas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/libraries.css">
 </head>
 <body>
@@ -23,26 +25,24 @@ $resultado = mysqli_query($conn, $queryMostrar);
         <div class="divTable">
             <table>
                 <tr>
-                    <th class="tableHeaderLeft">ID</th>
-                    <th>NOMBRE</th>
+                    <th class="tableHeaderLeft">NOMBRE</th>
                     <th>DIRECCIÓN</th>
                     <th>TELÉFONO</th>
                     <th class="tableHeaderRight">ACCIONES</th>
                 </tr>
                 <?php while ($row = mysqli_fetch_assoc($resultado)) : ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td class="textLeft"><?php echo $row['name']; ?></td>
                         <td class="textLeft"><?php echo $row['address']; ?></td>
                         <td><?php echo $row['phone']; ?></td>
                         <td class="rowButtons">
                             <form action="editLibrary.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                <button type="submit" class="editLibrary">EDIT</button>
+                                <button type="submit" class="editButton"><i class="fas fa-edit"></i></button>
                             </form>
                             <form action="deleteLibrary.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                <button type="submit" class="deleteLibrary">DELETE</button>
+                                <button type="submit" class="deleteButton"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
