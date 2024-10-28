@@ -28,8 +28,8 @@ $libraries = mysqli_fetch_assoc($result_library);
             <label for="phone">Teléfono:</label>
             <input type="text" id="phone" name="phone" value="<?php echo $libraries['phone']; ?>" required>
             <input type="submit" value="Actualiza" name="updateLibrary">
+            <a href="index.php" class="backButton">Volver</a>
         </form>
-        <a href="index.php">Volver</a>
     </div>
     <?php if (isset($_POST['updateLibrary'])) : ?>
         <?php if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['phone'])) : ?>

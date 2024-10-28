@@ -59,6 +59,7 @@ $resultado = mysqli_query($conn, $queryMostrar);
                 <label for="phone">Teléfono:</label>
                 <input type="text" id="phone" name="phone">
                 <input type="submit" value="Crear" name="addLibrary">
+                <a href="../index.php" class="backButton">Volver</a>
             </form>
         </div>  
     </div>
