@@ -130,6 +130,7 @@ h2 {
     width: 35%;
     margin-right: 100px;
     margin-top: 15px;
+    margin-left: 30px;
     background-color: #ffffff;
     border-radius: 20px;
     padding: 20px 50px;
@@ -302,3 +303,54 @@ select {
     border-radius: 10px;
     text-align: center;
 }
+
+.searchButton {
+    color: #516eff;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.searchButton:hover {
+    color: #3346a8;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+    transition: ease-in-out 0.2s;
+}
+
+.infoLibraryContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    background-color: #faac53;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.divInfoLibrary {
+    list-style: none;
+}
+
+.infoLibrary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1600px;
+    padding-right: 10px;
+}
+
+.libraryRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.libraryRow b {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+

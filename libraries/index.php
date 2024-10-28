@@ -44,6 +44,10 @@ $resultado = mysqli_query($conn, $queryMostrar);
                                 <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                                 <button type="submit" class="deleteButton"><i class="fas fa-trash"></i></button>
                             </form>
+                            <form action="showBooksOfLibrary.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                                <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
+                            </form>
                         </td>
                     </tr>
                 <?php endwhile; ?>
