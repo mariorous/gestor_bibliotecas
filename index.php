@@ -61,6 +61,8 @@ include_once 'db/db.php';
                             <td><?php echo $row['stock']; ?></td>
                             <td class="rowButtons">
                                 <form action="books/showBook.php" method="POST">
+                                    <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
+                                    <input type="hidden" name="id_library" value="<?php echo $row['id_library']; ?>">
                                     <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
                                 </form>
                             </td>

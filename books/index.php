@@ -38,13 +38,19 @@ $result = mysqli_query($conn, $query);
                         <td><?php echo $row['language']; ?></td>
                         <td><?php echo $row['stock']; ?></td>
                         <td class="rowButtons">
-                            <form action="editBook.php" method="POST">
+                            <!-- <form action="editBook.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <button type="submit" class="editButton"><i class="fas fa-edit"></i></button>
                             </form>
                             <form action="deleteBook.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                                 <button type="submit" class="deleteButton"><i class="fas fa-trash"></i></button>
+                            </form> -->
+                            <form action="showAllBooks.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
+                                <input type="hidden" name="id_library" value="<?php echo $row['id_library']; ?>">
+                                <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
                             </form>
                         </td>
                     </tr>
