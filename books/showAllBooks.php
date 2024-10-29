@@ -22,7 +22,7 @@ $result = mysqli_query($conn, $query);
 <body>
     <h1>Libros con ISBN "<?php echo $isbn; ?>"</h1>
     <div class="backContainer">
-        <a href="../index.php" class="backButton">Volver al inicio</a>
+        <a href="index.php" class="backButton">Volver</a>
     </div>
     <div class="container">
         <div class="divTable">
