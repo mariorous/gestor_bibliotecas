@@ -44,6 +44,7 @@ $book_array = mysqli_fetch_assoc($book_result);
                     ?>
                     <a href="index.php">Volver</a>
                 <input type="submit" value="Actualizar" name="updateBook">
+                <a class="backButton"href="index.php">Volver</a>
             </form>
         </div>
         <?php
