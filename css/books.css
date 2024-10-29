@@ -226,6 +226,22 @@ select {
     transition: ease-in-out 0.2s;
 }
 
+.searchButton {
+    color: #516eff;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.searchButton:hover {
+    color: #3346a8;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
 .confirmDelete {
     color: #ffffff;
     background-color: #fa5353;
@@ -281,4 +297,30 @@ select {
     font-size: 18px;
     border-radius: 10px;
     margin: 0;
+}
+
+.backButton {
+    background-color: #ffffff;
+    color: #333;
+    text-decoration: none;
+    font-size: 13.3333px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 10px;
+    border: 2px solid #faac53;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.backButton:hover {
+    background-color: #faac53;
+    color: #333;
+    text-decoration: none;
+    font-size: 13.3333px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 10px;
+    border: 2px solid #faac53;
+    border-radius: 10px;
+    text-align: center;
 }

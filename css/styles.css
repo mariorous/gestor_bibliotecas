@@ -126,7 +126,8 @@ h2 {
 }
 
 .divTable {
-    margin-left: 100px;
+    width: 70%;
+    margin: 0 auto;
 }
 
 .divForm {
@@ -165,4 +166,68 @@ select {
     border: 2px solid #afafaf;
     color: #333;
     font-weight: bold;
+}
+
+.rowButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rowButtons form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.editButton {
+    color: #faac53;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.editButton:hover {
+    color: #cb8c44;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+    transition: ease-in-out 0.2s;
+}
+
+
+.deleteButton {
+    color: #fa5353;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.deleteButton:hover {
+    color: #bf4141;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+    transition: ease-in-out 0.2s;
+}
+
+.searchButton {
+    color: #516eff;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+}
+
+.searchButton:hover {
+    color: #3346a8;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    font-size: 18px;
 }
