@@ -2,7 +2,8 @@
 
 include_once '../db/db.php';
 
-$query = 'SELECT * FROM book ORDER BY id DESC';
+$query = 'SELECT id, title, author, isbn, language, id_library, COUNT(*) as stock 
+FROM book GROUP BY isbn ORDER BY id DESC';
 $result = mysqli_query($conn, $query);
 
 ?>
@@ -26,7 +27,7 @@ $result = mysqli_query($conn, $query);
                     <th>AUTOR</th>
                     <th>ISBN</th>
                     <th>LENGUAJE</th>
-                    <th>UBICACIÓN</th>
+                    <th>STOCK</th>
                     <th class="tableHeaderRight">ACCIONES</th>
                 </tr>
                 <?php while ($row = mysqli_fetch_assoc($result)) : ?>
@@ -35,7 +36,7 @@ $result = mysqli_query($conn, $query);
                         <td class="textLeft"><?php echo $row['author']; ?></td>
                         <td><?php echo $row['isbn']; ?></td>
                         <td><?php echo $row['language']; ?></td>
-                        <td><?php echo $row['id_library']; ?></td>
+                        <td><?php echo $row['stock']; ?></td>
                         <td class="rowButtons">
                             <form action="editBook.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
@@ -76,6 +77,7 @@ $result = mysqli_query($conn, $query);
                     <?php endwhile; ?>
                     
                 <input type="submit" value="Añadir" name="addBook">
+                <a class="backButton" href="../index.php">Volver</a>
             </form>
         </div>
     </div>
