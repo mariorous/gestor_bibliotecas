@@ -47,17 +47,17 @@ $book_array = mysqli_fetch_assoc($book_result);
                 <a class="backButton"href="index.php">Volver</a>
             </form>
         </div>
-        <?php
-        if (isset($_POST['updateBook'])) {
-            if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['isbn']) || empty($_POST['language']) || empty($_POST['id_library'])) {
-                echo '<script>alert("Todos los campos son obligatorios")</script>';
-            } else {
-                $update_query = "UPDATE book SET title = '" . $_POST['title'] . "', author = '" . $_POST['author'] . "', isbn = '" . $_POST['isbn'] . "', language = '" . $_POST['language'] . "', id_library = '" . $_POST['id_library'] . "' WHERE id = '" . $_POST['id'] . "'";
-                $update_result = mysqli_query($conn, $update_query);
-                header('Location: index.php');
-            }
-        }
-        ?>
+        <?php if (isset($_POST['updateBook'])) : ?>
+            <?php if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['isbn']) || empty($_POST['language']) || empty($_POST['id_library'])) : ?>
+                <script>alert("Todos los campos son obligatorios")</script>;
+            <?php else : ?>
+                <?php
+                    $update_query = "UPDATE book SET title = '" . $_POST['title'] . "', author = '" . $_POST['author'] . "', isbn = '" . $_POST['isbn'] . "', language = '" . $_POST['language'] . "', id_library = '" . $_POST['id_library'] . "' WHERE id = '" . $_POST['id'] . "'";
+                    $update_result = mysqli_query($conn, $update_query);
+                    header('Location: index.php');
+                ?>
+            <?php endif; ?>
+        <?php endif; ?>
         </div>
     </body>
 </html>
