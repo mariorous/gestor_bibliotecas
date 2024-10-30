@@ -11,10 +11,6 @@ h1 {
     font-size: 40px;
 }
 
-form {
-    margin-bottom: 20px;
-}
-
 label {
     display: block;
     margin-bottom: 8px;
@@ -140,6 +136,7 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 input[type="submit"] {
@@ -302,6 +299,38 @@ select {
     border: 2px solid #faac53;
     border-radius: 10px;
     text-align: center;
+}
+
+.backButtonLibrary {
+    background-color: #ffffff;
+    color: #333;
+    text-decoration: none;
+    font-size: 13.3333px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 10px;
+    border: 2px solid #faac53;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-top: 20px;
+}
+
+.backButtonLibrary:hover {
+    background-color: #faac53;
+    color: #333;
+    text-decoration: none;
+    font-size: 13.3333px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 10px;
+    border: 2px solid #faac53;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-top: 20px;
 }
 
 .searchButton {

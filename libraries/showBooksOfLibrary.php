@@ -48,5 +48,6 @@ $resultBook = mysqli_query($conn, $bookFromLibrary);
             <?php endwhile; ?>
         </table>
     </div>
+    <a href="index.php" class="backButtonLibrary">Volver</a>
 </body>
 </html>
