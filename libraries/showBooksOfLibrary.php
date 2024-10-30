@@ -6,6 +6,9 @@ $info_library = "SELECT * FROM library WHERE id = '" . $_POST['id'] . "'";
 $result_library = mysqli_query($conn, $info_library);
 $libraries = mysqli_fetch_assoc($result_library);
 
+$bookFromLibrary = "SELECT * FROM book WHERE id_library = '" . $_POST['id'] . "'";
+$resultBook = mysqli_query($conn, $bookFromLibrary);
+
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +33,19 @@ $libraries = mysqli_fetch_assoc($result_library);
     <div class="divTableLibrary">
         <table>
             <tr>
-                <th class="tableHeaderLeft">TÍTULO</th>
+                <th>TÍTULO</th>
                 <th>AUTOR</th>
                 <th>ISBN</th>
-                <th class="tableHeaderRight">ACCIONES</th>
+                <th>LENGUA</th>
             </tr>
+            <?php while ($row = mysqli_fetch_assoc($resultBook)) : ?>
+            <tr>
+                <td class="textLeft"><?php echo $row['title'] ?></td>
+                <td class="textLeft"><?php echo $row['author'] ?></td>
+                <td><?php echo $row['isbn'] ?></td>
+                <td><?php echo $row['language'] ?></td>
+            </tr>
+            <?php endwhile; ?>
         </table>
     </div>
 </body>
