@@ -2,6 +2,14 @@
 
 include_once 'db/db.php';
 
+$library_name_query = "SELECT * FROM library";
+$library_name_result = mysqli_query($conn, $library_name_query);
+
+$library_names = [];
+while ($library_row = mysqli_fetch_assoc($library_name_result)) {
+    $library_names[$library_row['id']] = $library_row['name'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +65,12 @@ include_once 'db/db.php';
                             <td class="textLeft"><?php echo $row['author']; ?></td>
                             <td><?php echo $row['isbn']; ?></td>
                             <td><?php echo $row['language']; ?></td>
-                            <td><?php echo $row['id_library']; ?></td>
+                            <td>
+                                <?php
+                                // Obtener el nombre de la biblioteca a partir del id_library
+                                echo isset($library_names[$row['id_library']]) ? $library_names[$row['id_library']] : 'Sin asignar';
+                                ?>
+                            </td>
                             <td><?php echo $row['stock']; ?></td>
                             <td class="rowButtons">
                                 <form action="books/showBook.php" method="POST">

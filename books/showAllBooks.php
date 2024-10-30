@@ -9,6 +9,14 @@ $isbn = mysqli_real_escape_string($conn, $_POST['isbn']);
 $query = "SELECT * FROM book WHERE isbn = '$isbn' ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 
+$library_name_query = "SELECT * FROM library";
+$library_name_result = mysqli_query($conn, $library_name_query);
+
+$library_names = [];
+while ($library_row = mysqli_fetch_assoc($library_name_result)) {
+    $library_names[$library_row['id']] = $library_row['name'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +51,12 @@ $result = mysqli_query($conn, $query);
                         <td><?php echo $row['author']; ?></td>
                         <td><?php echo $row['isbn']; ?></td>
                         <td><?php echo $row['language']; ?></td>
-                        <td><?php echo $row['id_library']; ?></td>
+                        <td>
+                            <?php
+                            // Obtener el nombre de la biblioteca a partir del id_library
+                            echo isset($library_names[$row['id_library']]) ? $library_names[$row['id_library']] : 'Sin asignar';
+                            ?>
+                        </td>
                         <td class="rowButtons">
                             <form action="editBook.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
