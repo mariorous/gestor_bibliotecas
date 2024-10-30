@@ -8,6 +8,8 @@ $isbn = $_POST['isbn'];
 $language = $_POST['language'];
 $id_library = $_POST['id_library'];
 
+$id_library_value = empty($id_library) ? "NULL" : "'" . $id_library . "'";
+
 ?>
 
 <!DOCTYPE html>
@@ -19,15 +21,15 @@ $id_library = $_POST['id_library'];
     <title>Libros</title>
 </head>
 <body>
-    <?php if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['isbn']) || empty($_POST['language']) || empty($_POST['id_library'])) : ?>
+    <?php if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['isbn']) || empty($_POST['language'])) : ?>
         <h2>No has rellenado todos los campos</h2>
         <div class="backContainer">
             <a href="index.php">Volver</a>
         </div>
     <?php else : ?>
         <?php
-        $query = 'INSERT INTO book (title, author, isbn, language, id_library) 
-        VALUES ("' . $title . '", "' . $author . '", "' . $isbn . '", "' . $language . '", "' . $id_library . '")';
+        $query = "INSERT INTO book (title, author, isbn, language, id_library) 
+        VALUES ('$title', '$author', '$isbn', '$language', $id_library_value)";
         $result = mysqli_query($conn, $query);
         header('Location: index.php');
         ?>
