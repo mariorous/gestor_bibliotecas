@@ -9,13 +9,13 @@ $libraries = mysqli_fetch_assoc($result_library);
 $bookFromLibrary = "SELECT * FROM book WHERE id_library = '" . $_POST['id'] . "'";
 $resultBook = mysqli_query($conn, $bookFromLibrary);
 
-$stockLibrary = "SELECT isbn, COUNT(*) AS stock FROM book WHERE id_library = '" . $_POST['id'] . "' GROUP BY isbn";
-$resultStock = mysqli_query($conn, $stockLibrary);
+/* $stockLibrary = "SELECT isbn, COUNT(*) AS stock FROM book WHERE id_library = '" . $_POST['id'] . "' GROUP BY isbn";
+$resultStock = mysqli_query($conn, $stockLibrary); */
 
-$stockData = [];
-while ($stockRow = mysqli_fetch_assoc($resultStock)) {
-    $stockData[$stockRow['isbn']] = $stockRow['stock'];
-}
+$query = "SELECT title, author, isbn, language, id_library, COUNT(*) as stock 
+    FROM book 
+    WHERE id_library = '" . $_POST['id'] . "' GROUP BY isbn, id_library ORDER BY id DESC";
+$result = mysqli_query($conn, $query);
 
 ?>
 
@@ -47,13 +47,13 @@ while ($stockRow = mysqli_fetch_assoc($resultStock)) {
                 <th>LENGUA</th>
                 <th>STOCK</th>
             </tr>
-            <?php while ($row = mysqli_fetch_assoc($resultBook)) : ?>
+            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <tr>
                 <td class="textLeft"><?php echo $row['title'] ?></td>
                 <td class="textLeft"><?php echo $row['author'] ?></td>
                 <td><?php echo $row['isbn'] ?></td>
                 <td><?php echo $row['language'] ?></td>
-                <td><?php echo isset($stockData[$row['isbn']]) ? $stockData[$row['isbn']] : 0; ?></td>
+                <td><?php echo $row['stock']; ?></td>
             </tr>
             <?php endwhile; ?>
         </table>

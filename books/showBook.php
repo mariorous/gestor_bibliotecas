@@ -6,8 +6,16 @@ include_once '../db/db.php';
 $isbn = mysqli_real_escape_string($conn, $_POST['isbn']);
 $id_library = mysqli_real_escape_string($conn, $_POST['id_library']);
 
-// Consulta para obtener todos los libros que coincidan con el ISBN y estén en la misma biblioteca
-$query = "SELECT * FROM book WHERE isbn = '$isbn' AND id_library = '$id_library' ORDER BY id DESC";
+// Consulta para obtener todos los libros que coincidan con el ISBN
+// y, si id_library es null, obtener todos los libros con ese ISBN.
+$query = "SELECT * FROM book WHERE isbn = '$isbn' ";
+if ($id_library !== '') {
+    $query .= "AND id_library = '$id_library' ";
+} else {
+    $query .= "AND id_library IS NULL ";
+}
+$query .= "ORDER BY id DESC";
+
 $result = mysqli_query($conn, $query);
 
 ?>
@@ -21,7 +29,7 @@ $result = mysqli_query($conn, $query);
     <title>Libros con ISBN: <?php echo $isbn; ?></title>
 </head>
 <body>
-    <h1>Libros con ISBN "<?php echo $isbn; ?>" en la Biblioteca "<?php echo $id_library; ?>"</h1>
+    <h1>Libros con ISBN "<?php echo $isbn; ?>" en la Biblioteca "<?php echo isset($id_library) && $id_library !== '' ? $id_library : 'Sin asignar'; ?>"</h1>
     <div class="backContainer">
         <a href="../index.php" class="backButton">Volver al inicio</a>
     </div>
