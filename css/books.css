@@ -44,6 +44,7 @@ button {
 button:hover {
     background-color: #ffffff;
     border: 2px solid #faac53;
+    transition: ease-in-out 0.2s;
 }
 
 .createButton {
@@ -74,6 +75,7 @@ a {
 a:hover {
     background-color: #ffffff;
     border: 3px solid #faac53;
+    transition: ease-in-out 0.2s;
 }
 
 table {
@@ -113,6 +115,7 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #d1e7fd;
+    transition: ease-in-out 0.2s;
 }
 
 .container {
@@ -126,8 +129,7 @@ h2 {
 }
 
 .divTable {
-    width: 70%;
-    margin: 0 auto;
+    margin-left: 100px;
 }
 
 .divForm {
@@ -155,6 +157,14 @@ input[type="submit"] {
     background-color: #faac53;
     color: #333;
     font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    border: 2px solid #faac53;
+    background-color: #ffffff;
+    color: #333;
+    transition: ease-in-out 0.2s;
 }
 
 select {
@@ -230,4 +240,94 @@ select {
     border: none;
     margin: 0;
     font-size: 18px;
+}
+
+.confirmDelete {
+    color: #ffffff;
+    background-color: #fa5353;
+    border: 2px solid #fa5353;
+    margin: 0;
+    font-size: 18px;
+}
+
+.confirmDelete:hover {
+    color: #fa5353;
+    background-color: #ffffff;
+    border: 2px solid #fa5353;
+    margin: 0;
+    font-size: 18px;
+    transition: ease-in-out 0.2s;
+}
+
+.confirmDeleteContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.confirmDeleteContainer form {
+    margin: 0;
+}
+
+.confirmDeleteContainer a {
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 0;
+    margin-right: 50px;
+}
+
+.divUpdateForm {
+    width: 30%;
+    margin: 15px auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px 50px;
+    height: fit-content;
+}
+
+.backContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.backContainer a {
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 0;
+}
+
+.backButton {
+    background-color: #ffffff;
+    color: #333;
+    text-decoration: none;
+    font-size: 13.3333px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 10px;
+    border: 2px solid #faac53;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.backButton:hover {
+    background-color: #faac53;
+    color: #333;
+    text-decoration: none;
+    font-size: 13.3333px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 10px;
+    border: 2px solid #faac53;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.backButtonShowBook {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0 800px;
 }

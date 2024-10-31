@@ -1,6 +1,14 @@
 <?php
 
-require_once 'db/db.php';
+include_once 'db/db.php';
+
+$library_name_query = "SELECT * FROM library";
+$library_name_result = mysqli_query($conn, $library_name_query);
+
+$library_names = [];
+while ($library_row = mysqli_fetch_assoc($library_name_result)) {
+    $library_names[$library_row['id']] = $library_row['name'];
+}
 
 ?>
 
@@ -8,8 +16,9 @@ require_once 'db/db.php';
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestión de Bibliotecas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <title>Gestión de Bibliotecas</title>
 </head>
 <body>
     <h1>Gestión Centralizada de Bibliotecas</h1>
@@ -20,13 +29,63 @@ require_once 'db/db.php';
         <a href="books/index.php">Gestionar Libros</a>
     </div>
     <!-- Buscador de libros -->
-    <form method="" action="">
+    <form method="POST" action="">
         <label for="search">Buscar libros por título, autor o ISBN:</label>
         <input type="text" id="search" name="search" value="">
         <button type="submit">Buscar</button>
     </form>
 
-    
+
+    <?php if (isset($_POST['search'])) : ?>
+        <?php
+        $search_term = mysqli_real_escape_string($conn, $_POST['search']);
+        $query = "SELECT title, author, isbn, language, id_library, COUNT(*) as stock 
+                  FROM book 
+                  WHERE title LIKE '%$search_term%' 
+                     OR author LIKE '%$search_term%' 
+                     OR isbn LIKE '%$search_term%' 
+                  GROUP BY isbn, id_library 
+                  ORDER BY id DESC";
+        $result = mysqli_query($conn, $query);
+        ?>
+        <div class="container">
+            <div class="divTable">
+                <table>
+                    <tr>
+                        <th class="tableHeaderLeft">TÍTULO</th>
+                        <th>AUTOR</th>
+                        <th>ISBN</th>
+                        <th>LENGUAJE</th>
+                        <th>UBICACIÓN</th>
+                        <th>STOCK</th>
+                        <th class="tableHeaderRight">ACCIONES</th>
+                    </tr>
+                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                        <tr>
+                            <td class="textLeft"><?php echo $row['title']; ?></td>
+                            <td class="textLeft"><?php echo $row['author']; ?></td>
+                            <td><?php echo $row['isbn']; ?></td>
+                            <td><?php echo $row['language']; ?></td>
+                            <td>
+                                <?php
+                                // Obtener el nombre de la biblioteca a partir del id_library
+                                echo isset($library_names[$row['id_library']]) ? $library_names[$row['id_library']] : 'Sin asignar';
+                                ?>
+                            </td>
+                            <td><?php echo $row['stock']; ?></td>
+                            <td class="rowButtons">
+                                <form action="books/showBook.php" method="POST">
+                                    <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
+                                    <input type="hidden" name="id_library" value="<?php echo $row['id_library']; ?>">
+                                    <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </table>
+            </div>
+        </div>
+    <?php endif; ?>
 
 </body>
 </html>
