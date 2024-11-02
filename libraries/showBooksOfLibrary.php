@@ -9,10 +9,7 @@ $libraries = mysqli_fetch_assoc($result_library);
 $bookFromLibrary = "SELECT * FROM book WHERE id_library = '" . $_POST['id'] . "'";
 $resultBook = mysqli_query($conn, $bookFromLibrary);
 
-/* $stockLibrary = "SELECT isbn, COUNT(*) AS stock FROM book WHERE id_library = '" . $_POST['id'] . "' GROUP BY isbn";
-$resultStock = mysqli_query($conn, $stockLibrary); */
-
-$query = "SELECT title, author, isbn, language, id_library, COUNT(*) as stock 
+$query = "SELECT id, title, author, isbn, language, id_library, COUNT(*) as stock 
     FROM book 
     WHERE id_library = '" . $_POST['id'] . "' GROUP BY isbn, id_library ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
@@ -24,6 +21,7 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/libraries.css">
     <title>Bibliotecas</title>
 </head>
@@ -46,6 +44,7 @@ $result = mysqli_query($conn, $query);
                 <th>ISBN</th>
                 <th>LENGUA</th>
                 <th>STOCK</th>
+                <th>ACCIONES</th>
             </tr>
             <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <tr>
@@ -54,6 +53,14 @@ $result = mysqli_query($conn, $query);
                 <td><?php echo $row['isbn'] ?></td>
                 <td><?php echo $row['language'] ?></td>
                 <td><?php echo $row['stock']; ?></td>
+                <td class="rowButtons">
+                    <form action="viewBookStockOnLibrarie.php" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                        <input type="hidden" name="isbn" value="<?php echo $row['isbn']; ?>">
+                        <input type="hidden" name="id_library" value="<?php echo $row['id_library']; ?>">
+                        <button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
+                    </form>
+                </td>
             </tr>
             <?php endwhile; ?>
         </table>
