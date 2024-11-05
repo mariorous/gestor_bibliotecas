@@ -6,6 +6,8 @@ $name = $_POST['name'];
 $address = $_POST['address'];
 $phone = $_POST['phone'];
 
+$regex = '/^[0-9]{9}$/';
+
 ?>
 
 
@@ -20,6 +22,11 @@ $phone = $_POST['phone'];
 <body>
     <?php if (empty($name) || empty($address) || empty($phone)) : ?>
         <h2>No has rellenado todos los campos.</h2>
+        <div class="backContainer">
+            <a href="index.php">Volver</a>
+        </div>
+    <?php elseif (!preg_match($regex, $phone)) : ?>
+        <h2>El campo de teléfono no es válido.</h2>
         <div class="backContainer">
             <a href="index.php">Volver</a>
         </div>
