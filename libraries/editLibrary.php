@@ -6,6 +6,8 @@ $info_library = "SELECT * FROM library WHERE id = '" . $_POST['id'] . "'";
 $result_library = mysqli_query($conn, $info_library);
 $libraries = mysqli_fetch_assoc($result_library);
 
+$regex = '/^[0-9]{9}$/';
+
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +36,8 @@ $libraries = mysqli_fetch_assoc($result_library);
     <?php if (isset($_POST['updateLibrary'])) : ?>
         <?php if (empty($_POST['name']) || empty($_POST['address']) || empty($_POST['phone'])) : ?>
             <script>alert('Tienes que rellenar todos los campos')</script>
+        <?php elseif (!preg_match($regex, $_POST['phone'])) : ?>
+            <script>alert('El campo de teléfono no es válido')</script> 
         <?php else : ?>
             <?php
             $queryUpdate = "UPDATE Library SET name = '" . $_POST['name'] . "', address = '" . $_POST['address'] . "', phone = '" . $_POST['phone'] . "' WHERE id = '" . $_POST['id'] . "'";
