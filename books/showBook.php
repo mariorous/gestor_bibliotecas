@@ -6,6 +6,10 @@ include_once '../db/db.php';
 $isbn = mysqli_real_escape_string($conn, $_POST['isbn']);
 $id_library = mysqli_real_escape_string($conn, $_POST['id_library']);
 
+$library_name_query = "SELECT name FROM library WHERE id = '$id_library'";
+$library_name_result = mysqli_query($conn, $library_name_query);
+$library_names = mysqli_fetch_assoc($library_name_result);
+
 // Consulta para obtener todos los libros que coincidan con el ISBN
 // y, si id_library es null, obtener todos los libros con ese ISBN.
 $query = "SELECT * FROM book WHERE isbn = '$isbn' ";
@@ -29,7 +33,8 @@ $result = mysqli_query($conn, $query);
     <title>Libros con ISBN: <?php echo $isbn; ?></title>
 </head>
 <body>
-    <h1>Libros con ISBN "<?php echo $isbn; ?>" en la Biblioteca "<?php echo isset($id_library) && $id_library !== '' ? $id_library : 'Sin asignar'; ?>"</h1>
+    <h1>Libros con ISBN "<?php echo $isbn; ?>" en la Biblioteca "
+    <?php echo isset($library_names) ? $library_names['name'] : 'Sin asignar';?>"</h1>
     <div class="backContainer">
         <a href="../index.php" class="backButton">Volver al inicio</a>
     </div>
