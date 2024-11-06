@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2024 a las 17:33:29
+-- Tiempo de generación: 06-11-2024 a las 17:31:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -56,7 +56,7 @@ INSERT INTO `book` (`id`, `title`, `author`, `isbn`, `language`, `id_library`) V
 (13, 'La colmena', 'Camilo José Cela', '978-842335129', 'Esp', 2),
 (14, 'El proceso', 'Franz Kafka', '978-153681945', 'Esp', 5),
 (15, 'La fiesta del chivo', 'Mario Vargas Llosa', '978-006073279', 'Esp', 4),
-(16, 'El nombre de la rosa', 'Umberto Eco', '978-015600131', 'Esp', 5),
+(16, 'El nombre de la rosa', 'Umberto Eco', '978-015600131', 'Esp', 2),
 (17, 'Madame Bovary', 'Gustave Flaubert', '978-014044912', 'Esp', 4),
 (18, 'La ciudad y los perros', 'Mario Vargas Llosa', '978-846634134', 'Esp', 2),
 (19, 'Las ratas', 'Miguel Delibes', '978-846703748', 'Esp', 4),
@@ -65,7 +65,13 @@ INSERT INTO `book` (`id`, `title`, `author`, `isbn`, `language`, `id_library`) V
 (22, 'El hombre invisible', 'H.G. Wells', '978-048627071', 'Esp', 1),
 (23, 'Los miserables', 'Victor Hugo', '978-207036944', 'Esp', 1),
 (24, 'El extranjero', 'Albert Camus', '978-067972020', 'Esp', 2),
-(25, 'Ana Karenina', 'León Tolstói', '978-014303500', 'Esp', 1);
+(25, 'Ana Karenina', 'León Tolstói', '978-014303500', 'Esp', 1),
+(27, 'Ana Karenina', 'León Tolstói', '978-014303500', 'Esp', 2),
+(29, 'Ana Karenina', 'León Tolstói', '978-014303500', 'Esp', 1),
+(30, 'El extranjero', 'Albert Camus', '978-067972020', 'Esp', 2),
+(37, 'Los miserables', 'Victor Hugo', '978-207036944', 'Esp', 1),
+(38, 'Los miserables', 'Victor Hugo', '978-207036944', 'Esp', 1),
+(39, 'Los miserables', 'Victor Hugo', '978-207036944', 'Esp', 5);
 
 -- --------------------------------------------------------
 
@@ -116,7 +122,7 @@ ALTER TABLE `library`
 -- AUTO_INCREMENT de la tabla `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `library`

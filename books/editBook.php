@@ -48,13 +48,19 @@ $book_array = mysqli_fetch_assoc($book_result);
             </form>
         </div>
         <?php if (isset($_POST['updateBook'])) : ?>
-            <?php if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['isbn']) || empty($_POST['language']) || empty($_POST['id_library'])) : ?>
+            <?php if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['isbn']) || empty($_POST['language'])) : ?>
                 <script>alert("Todos los campos son obligatorios")</script>;
             <?php else : ?>
                 <?php
+                if (empty($_POST['id_library'])) {
+                    $update_query = "UPDATE book SET title = '" . $_POST['title'] . "', author = '" . $_POST['author'] . "', isbn = '" . $_POST['isbn'] . "', language = '" . $_POST['language'] . "', id_library = NULL WHERE id = '" . $_POST['id'] . "'";
+                    $update_result = mysqli_query($conn, $update_query);
+                    header('Location: index.php');
+                } else {
                     $update_query = "UPDATE book SET title = '" . $_POST['title'] . "', author = '" . $_POST['author'] . "', isbn = '" . $_POST['isbn'] . "', language = '" . $_POST['language'] . "', id_library = '" . $_POST['id_library'] . "' WHERE id = '" . $_POST['id'] . "'";
                     $update_result = mysqli_query($conn, $update_query);
                     header('Location: index.php');
+                }
                 ?>
             <?php endif; ?>
         <?php endif; ?>
